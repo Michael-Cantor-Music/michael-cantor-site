@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --color-brand-bg: #FAF9F5;
+  --color-brand-card: #E8E6DC;
+  --color-brand-card-light: #F0EEE6;
+  --color-brand-dark: #141413;
+  --color-brand-accent: #D97757;
+  --color-brand-muted: #8C8B87;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-brand-bg);
+  color: var(--color-brand-dark);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-fade-in-delay-1 {
+  animation: fadeIn 0.6s ease-out 0.1s forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-delay-2 {
+  animation: fadeIn 0.6s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-delay-3 {
+  animation: fadeIn 0.6s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+.link-card {
+  transition: all 0.2s ease;
+  background-color: var(--color-brand-card-light);
+  border-color: var(--color-brand-card);
+}
+
+.link-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(20, 20, 19, 0.08);
+  background-color: var(--color-brand-card);
+}
+
+.link-card:active {
+  transform: translateY(0);
+}
+
+.section-label {
+  color: var(--color-brand-muted);
+}
+
+.accent-text {
+  color: var(--color-brand-accent);
+}
