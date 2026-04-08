@@ -6,6 +6,7 @@ interface MusicLink {
   label: string;
   href: string;
   icon: React.ReactNode;
+  color: string;
 }
 
 export default function MusicLinks({ links }: { links: MusicLink[] }) {
@@ -20,7 +21,7 @@ export default function MusicLinks({ links }: { links: MusicLink[] }) {
           onClick={() => trackMusicLinkClick(link.label)}
           className="link-card flex items-center gap-3 px-4 py-3.5 rounded-xl border"
         >
-          <span className="text-[#FF6B00]">{link.icon}</span>
+          <span style={{ color: link.color }}>{link.icon}</span>
           <span className="text-sm font-medium text-[#141413]">{link.label}</span>
           <svg
             className="w-4 h-4 ml-auto text-[#8C8B87]"

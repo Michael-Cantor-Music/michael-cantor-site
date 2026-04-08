@@ -5,6 +5,7 @@ import { getLatestReleases, getArtistImage } from "@/lib/spotify";
 const MUSIC_LINKS = [
   {
     label: "Spotify",
+    color: "#1DB954",
     href: "https://open.spotify.com/artist/2nyS5xoo0whI3q74gsRmHL",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -14,6 +15,7 @@ const MUSIC_LINKS = [
   },
   {
     label: "Apple Music",
+    color: "#FC3C44",
     href: "https://music.apple.com/us/artist/michael-cantor/1631765548",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -23,6 +25,7 @@ const MUSIC_LINKS = [
   },
   {
     label: "YouTube",
+    color: "#FF0000",
     href: "https://youtube.com/channel/UCHLDDkR-qNPVgtFQFGk4aDw",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -35,6 +38,7 @@ const MUSIC_LINKS = [
 const SOCIAL_LINKS = [
   {
     label: "Instagram",
+    color: "#E1306C",
     href: "https://www.instagram.com/michaelrcantor",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -44,6 +48,7 @@ const SOCIAL_LINKS = [
   },
   {
     label: "YouTube",
+    color: "#FF0000",
     href: "https://youtube.com/@michaelcantor3",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -53,6 +58,7 @@ const SOCIAL_LINKS = [
   },
   {
     label: "TikTok",
+    color: "#000000",
     href: "https://www.tiktok.com/@michaelrcantor",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -138,7 +144,7 @@ export default async function Home() {
                 rel="noopener noreferrer"
                 className="link-card flex items-center gap-3 px-4 py-3.5 rounded-xl border"
               >
-                <span className="text-[#FF6B00]">{link.icon}</span>
+                <span style={{ color: link.color }}>{link.icon}</span>
                 <span className="text-sm font-medium text-[#141413]">{link.label}</span>
                 <svg
                   className="w-4 h-4 ml-auto text-[#8C8B87]"
