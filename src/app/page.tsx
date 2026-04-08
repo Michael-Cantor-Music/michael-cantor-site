@@ -1,3 +1,5 @@
+import MusicLinks from "@/components/MusicLinks";
+
 const MUSIC_LINKS = [
   {
     label: "Spotify",
@@ -139,33 +141,7 @@ export default function Home() {
           <h2 className="section-label text-xs font-medium uppercase tracking-widest mb-4">
             Listen
           </h2>
-          <div className="flex flex-col gap-3">
-            {MUSIC_LINKS.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="link-card flex items-center gap-3 px-4 py-3.5 rounded-xl border"
-              >
-                <span className="text-[#D97757]">{link.icon}</span>
-                <span className="text-sm font-medium text-[#141413]">{link.label}</span>
-                <svg
-                  className="w-4 h-4 ml-auto text-[#8C8B87]"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </a>
-            ))}
-          </div>
+          <MusicLinks links={MUSIC_LINKS} />
         </section>
 
         {/* Social Links */}
