@@ -65,21 +65,21 @@ const PROFILE_IMAGE =
 
 const RELEASES = [
   {
-    title: "Change My Name",
+    title: "Letters",
     image:
-      "https://i.scdn.co/image/ab67616d0000b273d0e355485b84d6d234e400b5",
+      "https://i.scdn.co/image/ab67616d0000b2734aecf0ac5fcea2fbb3340530",
     href: "https://open.spotify.com/artist/2nyS5xoo0whI3q74gsRmHL",
   },
   {
-    title: "Core Memories",
+    title: "Make It Last Forever",
     image:
-      "https://i.scdn.co/image/ab67616d0000b27334663de05171b190e8571079",
+      "https://i.scdn.co/image/ab67616d0000b273f33e5a06b4a4ad117dd2eef2",
     href: "https://open.spotify.com/artist/2nyS5xoo0whI3q74gsRmHL",
   },
   {
-    title: "Lips of an Angel",
+    title: "Sweet Tooth",
     image:
-      "https://i.scdn.co/image/ab67616d0000b27378b26654a5acd423df6ccf5f",
+      "https://i.scdn.co/image/ab67616d0000b2733ccb65cc11c5ee308a8f3081",
     href: "https://open.spotify.com/artist/2nyS5xoo0whI3q74gsRmHL",
   },
 ];
