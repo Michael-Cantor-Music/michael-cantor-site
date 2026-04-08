@@ -34,7 +34,7 @@ export async function getArtistImage(): Promise<string> {
     }
   );
   const data = await res.json();
-  return data.images[0]?.url ?? "";
+  return data.images?.[0]?.url ?? "";
 }
 
 export async function getLatestReleases(limit = 3): Promise<Release[]> {
@@ -47,7 +47,7 @@ export async function getLatestReleases(limit = 3): Promise<Release[]> {
     }
   );
   const data = await res.json();
-  return data.items.slice(0, limit).map((album: {
+  return (data.items ?? []).slice(0, limit).map((album: {
     name: string;
     images: { url: string }[];
     external_urls: { spotify: string };
