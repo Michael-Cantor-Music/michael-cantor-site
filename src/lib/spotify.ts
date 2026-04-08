@@ -43,6 +43,59 @@ export async function getArtistImage(): Promise<string> {
   }
 }
 
+export interface Track {
+  title: string;
+  popularity: number;
+  href: string;
+  number: number;
+}
+
+export async function getLatestAlbumTracks(): Promise<Track[]> {
+  try {
+    const token = await getAccessToken();
+    // Fetch the latest album
+    const albumsRes = await fetch(
+      `https://api.spotify.com/v1/artists/${ARTIST_ID}/albums?include_groups=single,album&market=US&limit=1`,
+      { headers: { Authorization: `Bearer ${token}` }, cache: "no-store" }
+    );
+    if (!albumsRes.ok) return [];
+    const albumsData = await albumsRes.json();
+    const album = albumsData.items?.[0];
+    if (!album) return [];
+
+    // Fetch tracks for that album
+    const tracksRes = await fetch(
+      `https://api.spotify.com/v1/albums/${album.id}/tracks?market=US&limit=50`,
+      { headers: { Authorization: `Bearer ${token}` }, cache: "no-store" }
+    );
+    if (!tracksRes.ok) return [];
+    const tracksData = await tracksRes.json();
+    const trackIds = (tracksData.items ?? []).map((t: { id: string }) => t.id).join(",");
+
+    // Fetch full track details (includes popularity)
+    const fullRes = await fetch(
+      `https://api.spotify.com/v1/tracks?ids=${trackIds}&market=US`,
+      { headers: { Authorization: `Bearer ${token}` }, cache: "no-store" }
+    );
+    if (!fullRes.ok) return [];
+    const fullData = await fullRes.json();
+
+    return (fullData.tracks ?? []).map((t: {
+      name: string;
+      popularity: number;
+      external_urls: { spotify: string };
+      track_number: number;
+    }) => ({
+      title: t.name,
+      popularity: t.popularity,
+      href: t.external_urls.spotify,
+      number: t.track_number,
+    }));
+  } catch {
+    return [];
+  }
+}
+
 export async function getLatestReleases(limit = 3): Promise<Release[]> {
   try {
     const token = await getAccessToken();

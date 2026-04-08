@@ -1,6 +1,6 @@
 import MusicLinks from "@/components/MusicLinks";
 import ColorBackground from "@/components/ColorBackground";
-import { getLatestReleases, getArtistImage } from "@/lib/spotify";
+import { getLatestReleases, getArtistImage, getLatestAlbumTracks } from "@/lib/spotify";
 
 const MUSIC_LINKS = [
   {
@@ -69,9 +69,10 @@ const SOCIAL_LINKS = [
 ];
 
 export default async function Home() {
-  const [releases, profileImage] = await Promise.all([
+  const [releases, profileImage, tracks] = await Promise.all([
     getLatestReleases(3),
     getArtistImage(),
+    getLatestAlbumTracks(),
   ]);
   return (
     <main className="min-h-screen flex flex-col items-center px-5 py-12 sm:py-16">
@@ -128,6 +129,28 @@ export default async function Home() {
             Listen
           </h2>
           <MusicLinks links={MUSIC_LINKS} />
+          {tracks.length > 0 && (
+            <div className="mt-4 flex flex-col divide-y divide-[#E8E6DC]">
+              {tracks.map((track) => (
+                <a
+                  key={track.href}
+                  href={track.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 py-2.5 group"
+                >
+                  <span className="text-xs text-[#8C8B87] w-4 text-right shrink-0">{track.number}</span>
+                  <span className="text-sm text-[#141413] flex-1 group-hover:text-[#1DB954] transition-colors truncate">{track.title}</span>
+                  <div className="flex items-center gap-1.5 shrink-0">
+                    <div className="w-16 h-1 rounded-full bg-[#E8E6DC] overflow-hidden">
+                      <div className="h-full rounded-full bg-[#1DB954]" style={{ width: `${track.popularity}%` }} />
+                    </div>
+                    <span className="text-xs text-[#8C8B87] w-6">{track.popularity}</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          )}
         </section>
 
         {/* Social Links */}
