@@ -1,4 +1,5 @@
 import MusicLinks from "@/components/MusicLinks";
+import { getLatestReleases } from "@/lib/spotify";
 
 const MUSIC_LINKS = [
   {
@@ -63,28 +64,8 @@ const SOCIAL_LINKS = [
 const PROFILE_IMAGE =
   "https://i.scdn.co/image/ab67616d0000b273d0e355485b84d6d234e400b5";
 
-const RELEASES = [
-  {
-    title: "Letters",
-    image:
-      "https://i.scdn.co/image/ab67616d0000b2734aecf0ac5fcea2fbb3340530",
-    href: "https://open.spotify.com/artist/2nyS5xoo0whI3q74gsRmHL",
-  },
-  {
-    title: "Make It Last Forever",
-    image:
-      "https://i.scdn.co/image/ab67616d0000b273f33e5a06b4a4ad117dd2eef2",
-    href: "https://open.spotify.com/artist/2nyS5xoo0whI3q74gsRmHL",
-  },
-  {
-    title: "Sweet Tooth",
-    image:
-      "https://i.scdn.co/image/ab67616d0000b2733ccb65cc11c5ee308a8f3081",
-    href: "https://open.spotify.com/artist/2nyS5xoo0whI3q74gsRmHL",
-  },
-];
-
-export default function Home() {
+export default async function Home() {
+  const releases = await getLatestReleases(3);
   return (
     <main className="min-h-screen flex flex-col items-center px-5 py-12 sm:py-16">
       <div className="w-full max-w-md">
@@ -112,7 +93,7 @@ export default function Home() {
             Latest Releases
           </h2>
           <div className="grid grid-cols-3 gap-3">
-            {RELEASES.map((release) => (
+            {releases.map((release) => (
               <a
                 key={release.title}
                 href={release.href}
