@@ -1,4 +1,5 @@
 import MusicLinks from "@/components/MusicLinks";
+import ColorBackground from "@/components/ColorBackground";
 import { getLatestReleases, getArtistImage } from "@/lib/spotify";
 
 const MUSIC_LINKS = [
@@ -68,6 +69,7 @@ export default async function Home() {
   ]);
   return (
     <main className="min-h-screen flex flex-col items-center px-5 py-12 sm:py-16">
+      <ColorBackground imageUrl={releases[0]?.image ?? profileImage} />
       <div className="w-full max-w-md">
         {/* Profile Section */}
         <div className="flex flex-col items-center text-center animate-fade-in">
