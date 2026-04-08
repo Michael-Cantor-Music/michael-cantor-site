@@ -82,9 +82,6 @@ export default async function Home() {
           <h1 className="text-2xl font-semibold tracking-tight text-[#141413]">
             Michael Cantor
           </h1>
-          <p className="text-[#8C8B87] text-sm mt-1 max-w-xs leading-relaxed">
-            Singer-songwriter from Westport, CT. Folk, pop &amp; rock — with heart.
-          </p>
         </div>
 
         {/* Latest Releases */}
