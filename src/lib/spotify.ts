@@ -12,7 +12,7 @@ async function getAccessToken(): Promise<string> {
         ).toString("base64"),
     },
     body: "grant_type=client_credentials",
-    next: { revalidate: 3600 },
+    cache: "no-store",
   });
   const data = await res.json();
   return data.access_token;
