@@ -1,5 +1,5 @@
 import MusicLinks from "@/components/MusicLinks";
-import { getLatestReleases } from "@/lib/spotify";
+import { getLatestReleases, getArtistImage } from "@/lib/spotify";
 
 const MUSIC_LINKS = [
   {
@@ -61,11 +61,11 @@ const SOCIAL_LINKS = [
   },
 ];
 
-const PROFILE_IMAGE =
-  "https://i.scdn.co/image/ab67616d0000b273d0e355485b84d6d234e400b5";
-
 export default async function Home() {
-  const releases = await getLatestReleases(3);
+  const [releases, profileImage] = await Promise.all([
+    getLatestReleases(3),
+    getArtistImage(),
+  ]);
   return (
     <main className="min-h-screen flex flex-col items-center px-5 py-12 sm:py-16">
       <div className="w-full max-w-md">
@@ -74,7 +74,7 @@ export default async function Home() {
           <div className="w-28 h-28 rounded-full overflow-hidden mb-4 ring-2 ring-[#E8E6DC]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={PROFILE_IMAGE}
+              src={profileImage}
               alt="Michael Cantor"
               className="object-cover w-full h-full"
             />

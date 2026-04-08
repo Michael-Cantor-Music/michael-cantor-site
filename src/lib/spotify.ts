@@ -24,6 +24,19 @@ export interface Release {
   href: string;
 }
 
+export async function getArtistImage(): Promise<string> {
+  const token = await getAccessToken();
+  const res = await fetch(
+    `https://api.spotify.com/v1/artists/${ARTIST_ID}`,
+    {
+      headers: { Authorization: `Bearer ${token}` },
+      next: { revalidate: 3600 },
+    }
+  );
+  const data = await res.json();
+  return data.images[0]?.url ?? "";
+}
+
 export async function getLatestReleases(limit = 3): Promise<Release[]> {
   const token = await getAccessToken();
   const res = await fetch(
