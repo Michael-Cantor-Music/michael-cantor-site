@@ -7,7 +7,10 @@ function extractColor(img: HTMLImageElement): { r: number; g: number; b: number 
   canvas.width = 50;
   canvas.height = 50;
   const ctx = canvas.getContext("2d")!;
-  ctx.drawImage(img, 0, 0, 50, 50);
+  // Sample only the bottom 30% of the image where the floor is
+  const srcY = img.height * 0.7;
+  const srcH = img.height * 0.3;
+  ctx.drawImage(img, 0, srcY, img.width, srcH, 0, 0, 50, 50);
   const data = ctx.getImageData(0, 0, 50, 50).data;
   let r = 0, g = 0, b = 0, count = 0;
   for (let i = 0; i < data.length; i += 4) {
