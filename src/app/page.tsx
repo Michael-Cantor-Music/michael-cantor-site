@@ -1,4 +1,4 @@
-export const dynamic = "force-dynamic";
+export const revalidate = 3600; // Revalidate at most once per hour
 
 import MusicLinks from "@/components/MusicLinks";
 import ColorBackground from "@/components/ColorBackground";

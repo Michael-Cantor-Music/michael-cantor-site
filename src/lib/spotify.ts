@@ -12,7 +12,7 @@ async function getAccessToken(): Promise<string> {
         ).toString("base64"),
     },
     body: "grant_type=client_credentials",
-    cache: "no-store",
+    next: { revalidate: 3600 },
   });
   if (!res.ok) throw new Error(`Token fetch failed: ${res.status}`);
   const data = await res.json();
@@ -32,7 +32,7 @@ export async function getArtistImage(): Promise<string> {
       `https://api.spotify.com/v1/artists/${ARTIST_ID}`,
       {
         headers: { Authorization: `Bearer ${token}` },
-        cache: "no-store",
+        next: { revalidate: 3600 },
       }
     );
     if (!res.ok) return "";
@@ -103,7 +103,7 @@ export async function getLatestReleases(limit = 3): Promise<Release[]> {
       `https://api.spotify.com/v1/artists/${ARTIST_ID}/albums?include_groups=single,album&market=US&limit=10`,
       {
         headers: { Authorization: `Bearer ${token}` },
-        cache: "no-store",
+        next: { revalidate: 3600 },
       }
     );
     if (!res.ok) return [];
