@@ -188,7 +188,7 @@ export default async function Home() {
         </section>
 
         {/* Footer */}
-        <footer className="mt-14 text-center flex flex-col items-center gap-2">
+        <footer className="mt-14 text-center">
           <a
             href="https://michaelcantormusic.com"
             target="_blank"
@@ -196,14 +196,6 @@ export default async function Home() {
             className="text-xs text-[#8C8B87] hover:text-[#FF6B00] transition-colors"
           >
             michaelcantormusic.com
-          </a>
-          <a
-            href="https://michael-cantor-epk.vercel.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs text-[#8C8B87] hover:text-[#FF6B00] transition-colors"
-          >
-            Electronic Press Kit
           </a>
         </footer>
       </div>
