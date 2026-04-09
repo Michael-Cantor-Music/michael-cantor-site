@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import MusicLinks from "@/components/MusicLinks";
 import ColorBackground from "@/components/ColorBackground";
 import { getLatestReleases, getArtistImage, getLatestAlbumTracks } from "@/lib/spotify";
