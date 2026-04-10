@@ -77,7 +77,15 @@ export default async function Home() {
     getLatestAlbumTracks(),
   ]);
   return (
-    <main className="min-h-screen flex flex-col items-center px-5 py-12 sm:py-16">
+    <main className="min-h-screen flex flex-col items-center px-5 py-12 sm:py-16 relative">
+      {/* Background photo */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/thisone1.jpg"
+        alt=""
+        className="fixed inset-0 w-full h-full object-cover object-center"
+        style={{ zIndex: -1, opacity: 0.18 }}
+      />
       <ColorBackground imageUrl={releases[0]?.image ?? profileImage} />
       <div className="w-full max-w-md">
         {/* Profile Section */}
