@@ -84,7 +84,7 @@ export default async function Home() {
         src="/thisone1.jpg"
         alt=""
         className="fixed inset-0 w-full h-full object-cover object-center"
-        style={{ zIndex: -1, opacity: 0.18 }}
+        style={{ zIndex: -1, opacity: 0.35 }}
       />
       <ColorBackground imageUrl={releases[0]?.image ?? profileImage} />
       <div className="w-full max-w-md">
@@ -93,7 +93,7 @@ export default async function Home() {
           <div className="w-28 h-28 rounded-full overflow-hidden mb-4 ring-2 ring-[#E8E6DC]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={profileImage}
+              src="/profile.jpg"
               alt="Michael Cantor"
               className="object-cover w-full h-full"
             />
