@@ -103,35 +103,6 @@ export default async function Home() {
           </h1>
         </div>
 
-        {/* Latest Releases */}
-        <section className="mt-10 animate-fade-in-delay-1">
-          <h2 className="section-label text-xs font-medium uppercase tracking-widest mb-4">
-            Latest Releases
-          </h2>
-          <div className="grid grid-cols-3 gap-3">
-            {releases.map((release) => (
-              <a
-                key={release.title}
-                href={release.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group"
-              >
-                <div className="aspect-square rounded-lg overflow-hidden bg-[#E8E6DC]">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={release.image}
-                    alt={release.title}
-                    className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <p className="text-xs text-[#141413] mt-2 text-center font-medium">
-                  {release.title}
-                </p>
-              </a>
-            ))}
-          </div>
-        </section>
 
         {/* Music Links */}
         <section className="mt-10 animate-fade-in-delay-2">
