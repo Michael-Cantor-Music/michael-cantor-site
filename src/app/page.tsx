@@ -84,7 +84,7 @@ export default async function Home() {
         src="/thisone1.jpg"
         alt=""
         className="fixed inset-0 w-full h-full object-cover object-center"
-        style={{ zIndex: -1, opacity: 0.175 }}
+        style={{ zIndex: -1, opacity: 0.75 }}
       />
       <ColorBackground imageUrl={releases[0]?.image ?? profileImage} />
       <div className="w-full max-w-md">
