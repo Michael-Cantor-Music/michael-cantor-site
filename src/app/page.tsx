@@ -197,6 +197,33 @@ export default async function Home() {
           </div>
         </section>
 
+        {/* Contact */}
+        <section className="mt-10 animate-fade-in-delay-3">
+          <h2 className="section-label text-xs font-medium uppercase tracking-widest mb-4">
+            Contact
+          </h2>
+          <a
+            href="mailto:mgmt@michaelcantor.com"
+            className="link-card flex items-center gap-3 px-4 py-3.5 rounded-xl border"
+          >
+            <span style={{ color: "#8C8B87" }}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-5 h-5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+              </svg>
+            </span>
+            <span className="text-sm font-medium text-[#141413]">mgmt@michaelcantor.com</span>
+            <svg
+              className="w-4 h-4 ml-auto text-[#8C8B87]"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </section>
+
         {/* Footer */}
         <footer className="mt-14 text-center">
           <a
