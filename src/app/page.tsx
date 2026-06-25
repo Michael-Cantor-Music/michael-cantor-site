@@ -200,12 +200,12 @@ export default async function Home() {
         {/* Footer */}
         <footer className="mt-14 text-center">
           <a
-            href="https://michaelcantormusic.com"
+            href="https://michaelcantor.com"
             target="_blank"
             rel="noopener noreferrer"
             className="text-xs text-[#8C8B87] hover:text-[#FF6B00] transition-colors"
           >
-            michaelcantormusic.com
+            michaelcantor.com
           </a>
         </footer>
       </div>
